@@ -20,17 +20,17 @@ class Introductionpage extends StatelessWidget {
               ])),
           child: Column(
             //mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: [const SizedBox(height: 50,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
                     'assets/images/Comp 2_10.png',
-                    height: 200,
-                    width: 200,
+                    height: 100,
+                    width: 100,
                   ),
                 ],
-              ),
+              ),const SizedBox(height: 100,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -59,7 +59,7 @@ class Introductionpage extends StatelessWidget {
                   ),
                 ],
                 
-              ),Row(
+              ),Row(mainAxisAlignment: MainAxisAlignment.center,
                 
                 children: [
                   Text(
@@ -75,7 +75,7 @@ class Introductionpage extends StatelessWidget {
                         fontWeight: FontWeight.w500),
                   ),
                 ],
-              ),
+              ),const SizedBox(height: 100,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
