@@ -42,7 +42,7 @@ class Firstpage extends StatelessWidget {
                               height: 360,
                               width: 400,
                               child: Image.asset(
-                                'assets/images/profile_card1.png',
+                                'assets/images/profile_card2.png',
                                 fit: BoxFit.fitHeight,
                               )),
                         ],
@@ -63,7 +63,7 @@ class Firstpage extends StatelessWidget {
                                   54,
                                   105,
                                 ),
-                                fontWeight: FontWeight.w500),
+                                fontWeight: FontWeight.w600),
                           ),
                         ],
                       ),
@@ -80,17 +80,14 @@ class Firstpage extends StatelessWidget {
                                   54,
                                   105,
                                 ),
-                                fontWeight: FontWeight.w500),
+                                fontWeight: FontWeight.w600),
                           ),
                         ],
                       ),
                       const SizedBox(
                         height: 90,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [],
-                      )
+                      
                     ],
                   ),
                 );
