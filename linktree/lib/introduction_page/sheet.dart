@@ -10,9 +10,9 @@ class Sheet extends StatefulWidget {
 }
 
 class _SheetState extends State<Sheet> {
-  String name1='';
-  TextEditingController name = TextEditingController();
-  TextEditingController username = TextEditingController();
+  String name='';
+  TextEditingController inputname = TextEditingController();
+  TextEditingController inputusername = TextEditingController();
 
   //final nam1=name.text;
   @override
@@ -21,7 +21,6 @@ class _SheetState extends State<Sheet> {
         style: OutlinedButton.styleFrom(
             foregroundColor: const Color.fromARGB(255, 121, 121, 121)),
         onPressed: () {
-          String name1 = name.text;
           _desplayBottomSheet(context);
         },
         child: Text(
@@ -56,7 +55,7 @@ class _SheetState extends State<Sheet> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: TextField(
-                        controller: name,
+                        controller: inputname,
                         decoration: InputDecoration(
                           prefixIcon: const Icon(Icons.person),
                           hintText: 'Enter your name',
@@ -72,7 +71,7 @@ class _SheetState extends State<Sheet> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: TextField(
-                        controller: username,
+                        controller: inputusername,
                         decoration: InputDecoration(
                           hintText: 'Enter your username',
                           prefixIcon: const Icon(Icons.password),
@@ -96,13 +95,14 @@ class _SheetState extends State<Sheet> {
                               foregroundColor:
                                   const Color.fromARGB(255, 121, 121, 121)),
                           onPressed: () {
-                            String name1= name.toString();
-                            Navigator.push(
+                             name= inputname.text;
+                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const Mainpage()));
-                            ;
-                          },
+                                    builder: (context) =>  Mainpage(name1: name,)));
+                            
+                          
+                            },
                           child: Text(
                             'Sign in',
                             style: GoogleFonts.inter(
@@ -111,7 +111,7 @@ class _SheetState extends State<Sheet> {
                           )),
                     ),
                   ),
-                  Text(name1)
+                  Text(name)
                 ],
               ),
             ));
