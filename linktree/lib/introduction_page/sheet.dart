@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:linktree/main_page/main_page.dart';
 
 class Sheet extends StatefulWidget {
   const Sheet({super.key});
@@ -9,13 +10,18 @@ class Sheet extends StatefulWidget {
 }
 
 class _SheetState extends State<Sheet> {
+  String name1='';
   TextEditingController name = TextEditingController();
+  TextEditingController username = TextEditingController();
+
+  //final nam1=name.text;
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
         style: OutlinedButton.styleFrom(
             foregroundColor: const Color.fromARGB(255, 121, 121, 121)),
         onPressed: () {
+          String name1 = name.text;
           _desplayBottomSheet(context);
         },
         child: Text(
@@ -31,7 +37,7 @@ class _SheetState extends State<Sheet> {
             borderRadius: BorderRadius.vertical(top: Radius.circular(40))),
         context: context,
         builder: (context) => SizedBox(
-              height: 500,
+              height: 400,
               child: Column(
                 children: [
                   const SizedBox(
@@ -52,17 +58,8 @@ class _SheetState extends State<Sheet> {
                     child: TextField(
                         controller: name,
                         decoration: InputDecoration(
-                          suffixIcon: const Row(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 10),
-                                child: Icon(
-                                  Icons.person,
-                                ),
-                              ),
-                              Text('Enter your name ')
-                            ],
-                          ),
+                          prefixIcon: const Icon(Icons.person),
+                          hintText: 'Enter your name',
                           filled: true,
                           fillColor: const Color.fromARGB(255, 215, 215, 215),
                           border: OutlineInputBorder(
@@ -75,25 +72,46 @@ class _SheetState extends State<Sheet> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: TextField(
-                        controller: name,
+                        controller: username,
                         decoration: InputDecoration(
-                          suffixIcon: const Row(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 10),
-                                child: Icon(
-                                  Icons.password_rounded,
-                                ),
-                              ),
-                              Text('Enter your Password ')
-                            ],
-                          ),
+                          hintText: 'Enter your username',
+                          prefixIcon: const Icon(Icons.password),
                           filled: true,
                           fillColor: const Color.fromARGB(255, 215, 215, 215),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20)),
                         )),
                   ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Container(
+                      color: Colors.black,
+                      height: 50,
+                      width: 350,
+                      child: OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                              foregroundColor:
+                                  const Color.fromARGB(255, 121, 121, 121)),
+                          onPressed: () {
+                            String name1= name.toString();
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Mainpage()));
+                            ;
+                          },
+                          child: Text(
+                            'Sign in',
+                            style: GoogleFonts.inter(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w700),
+                          )),
+                    ),
+                  ),
+                  Text(name1)
                 ],
               ),
             ));
