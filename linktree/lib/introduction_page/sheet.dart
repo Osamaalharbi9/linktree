@@ -11,6 +11,7 @@ class Sheet extends StatefulWidget {
 
 class _SheetState extends State<Sheet> {
   String name='';
+  String username='';
   TextEditingController inputname = TextEditingController();
   TextEditingController inputusername = TextEditingController();
 
@@ -94,12 +95,15 @@ class _SheetState extends State<Sheet> {
                           style: OutlinedButton.styleFrom(
                               foregroundColor:
                                   const Color.fromARGB(255, 121, 121, 121)),
-                          onPressed: () {
+                          onPressed: () {username=inputusername.text;
                              name= inputname.text;
-                             Navigator.push(
+                            if(username==''&&name==''){}
+                          else{Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>  Mainpage(name1: name,)));
+                                    builder: (context) =>  Mainpage(name1: name,username1: username,)));}
+                            
+                             
                             
                           
                             },
@@ -111,7 +115,7 @@ class _SheetState extends State<Sheet> {
                           )),
                     ),
                   ),
-                  Text(name)
+                
                 ],
               ),
             ));

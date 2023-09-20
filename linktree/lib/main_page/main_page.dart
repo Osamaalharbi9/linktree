@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-
 class Mainpage extends StatefulWidget {
-   Mainpage({super.key,required this.name1});
-   var name1;
+  const Mainpage({super.key, required this.name1, required this.username1});
+  final String name1;
+  final String username1;
   @override
   State<Mainpage> createState() => _MainpageState();
 }
@@ -11,6 +11,12 @@ class Mainpage extends StatefulWidget {
 class _MainpageState extends State<Mainpage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Text(widget.name1),);
+    return Scaffold(
+      body: Column(
+        children: [Text(widget.name1),
+          Text(widget.username1),
+        ],
+      ),
+    );
   }
 }
